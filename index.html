@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>조정윤 | Portfolio</title>
+    <title>조정윤 | CHO JUNGYOON Portfolio</title>
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
     
     <style>
-        /* CSS Variables (전문가들이 쓰는 변수 지정 방식) */
+        /* CSS Variables: 전체 색상 테마 통일 */
         :root {
             --bg-color: #0f1115;
             --surface-color: #1a1d24;
@@ -16,7 +17,7 @@
             --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
         }
 
-        /* 기본 초기화 및 폰트 설정 */
+        /* 기본 초기화 */
         * {
             margin: 0;
             padding: 0;
@@ -30,21 +31,16 @@
             overflow-x: hidden;
         }
 
-        /* 등장 애니메이션 키프레임 (고급 기술) */
+        /* 안정적인 페이드인 애니메이션 */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
-        @keyframes glow {
-            0% { box-shadow: 0 0 5px rgba(139, 92, 246, 0.2); }
-            50% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.6); }
-            100% { box-shadow: 0 0 5px rgba(139, 92, 246, 0.2); }
         }
 
         /* 레이아웃 컨테이너 */
@@ -54,12 +50,12 @@
             padding: 0 24px;
         }
 
-        /* 상단 네비게이션 (글래스모피즘 효과 적용) */
+        /* 상단 네비게이션바 */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(15, 17, 21, 0.7);
+            background: rgba(15, 17, 21, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -75,12 +71,10 @@
             font-weight: 800;
             font-size: 1.2rem;
             letter-spacing: 1px;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #fff;
         }
 
-        /* 메인 대문 (Hero Section) */
+        /* 대문 (Hero) 섹션 */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -88,36 +82,52 @@
             justify-content: center;
             padding-top: 70px;
         }
+        
+        /* 눈에 확 띄게 수정한 소속 배지 */
         .hero-badge {
-            display: inline-block;
-            padding: 6px 16px;
-            background: rgba(59, 130, 246, 0.1);
-            color: #60a5fa;
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 24px;
+            background: var(--accent-gradient);
+            color: #ffffff;
             border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 600;
+            font-size: 1.1rem;
+            font-weight: 700;
             margin-bottom: 24px;
-            border: 1px solid rgba(59, 130, 246, 0.2);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
             animation: fadeInUp 0.8s ease forwards;
+            width: max-content;
         }
+
+        /* 한글, 영어 이름 동시 표기 레이아웃 */
         .hero h1 {
             font-size: 4rem;
             font-weight: 800;
-            line-height: 1.1;
+            line-height: 1.2;
             margin-bottom: 20px;
             letter-spacing: -1px;
             opacity: 0;
             animation: fadeInUp 0.8s ease 0.2s forwards;
         }
-        .hero h1 span {
+        .hero h1 .eng-name {
+            display: block;
+            font-size: 2.2rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-top: 5px;
+            letter-spacing: 0px;
+        }
+        .hero h1 span.highlight {
             background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        
+        /* 비전 텍스트 가독성 증가 */
         .hero p.vision {
             font-size: 1.5rem;
-            color: var(--text-secondary);
-            max-width: 700px;
+            color: #e2e8f0;
+            max-width: 750px;
             font-weight: 400;
             opacity: 0;
             animation: fadeInUp 0.8s ease 0.4s forwards;
@@ -139,7 +149,7 @@
             margin-right: 10px;
         }
 
-        /* 소개 (About) 섹션 타이포그래피 */
+        /* 소개 텍스트 */
         .about-text {
             font-size: 1.2rem;
             color: var(--text-secondary);
@@ -153,17 +163,18 @@
             font-weight: 600;
         }
 
-        /* 연구 관심분야 카드 (고급 호버 효과) */
+        /* 깜빡임 문제를 해결한 연구 분야 카드 */
         .research-card {
             background: var(--surface-color);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 20px;
             padding: 40px;
-            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
             opacity: 0;
             animation: fadeInUp 0.8s ease 0.8s forwards;
+            /* 애니메이션 대신 안정적인 트랜지션 효과 적용 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
         .research-card::before {
             content: '';
@@ -171,10 +182,11 @@
             top: 0; left: 0; width: 100%; height: 4px;
             background: var(--accent-gradient);
         }
+        /* 마우스를 올렸을 때만 안정적으로 강조되도록 수정 */
         .research-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(139, 92, 246, 0.3);
-            animation: glow 2s infinite;
+            transform: translateY(-8px);
+            border-color: rgba(139, 92, 246, 0.4);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(139, 92, 246, 0.15);
         }
         .research-card h3 {
             font-size: 1.8rem;
@@ -183,24 +195,26 @@
             margin-bottom: 16px;
         }
         .research-card p {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--text-secondary);
+            line-height: 1.7;
         }
 
-        /* 푸터 */
+        /* 하단 푸터 */
         footer {
             padding: 40px 0;
             text-align: center;
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             margin-top: 50px;
         }
 
-        /* 모바일 반응형 */
+        /* 모바일 최적화 */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero p.vision { font-size: 1.1rem; }
+            .hero h1 { font-size: 3rem; }
+            .hero h1 .eng-name { font-size: 1.8rem; }
+            .hero p.vision { font-size: 1.2rem; }
             section { padding: 60px 0; }
         }
     </style>
@@ -209,14 +223,17 @@
 
     <nav>
         <div class="container">
-            <div class="logo">JO JEONG YOON.</div>
+            <div class="logo">CHO JUNGYOON.</div>
         </div>
     </nav>
 
     <header class="hero container">
         <div class="hero-badge">카이스트 정보경영 석사 학생</div>
-        <h1>데이터 기반의<br><span>전략적 의사결정</span></h1>
-        <p class="vision">AI 기술과 데이터를 활용해 데이터기반 전략적 의사결정에 활용하고 싶습니다.</p>
+        <h1>
+            조정윤
+            <span class="eng-name">CHO JUNGYOON</span>
+        </h1>
+        <p class="vision">AI 기술과 데이터를 활용해 <span class="highlight">데이터 기반 전략적 의사결정</span>에 활용하고 싶습니다.</p>
     </header>
 
     <section class="container">
@@ -236,7 +253,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 조정윤 (Jo Jeong-yoon). All rights reserved.</p>
+            <p>&copy; 2026 조정윤 (CHO JUNGYOON). All rights reserved.</p>
             <p>Built with GitHub Pages & AI</p>
         </div>
     </footer>
