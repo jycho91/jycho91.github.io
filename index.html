@@ -2,10 +2,247 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>나의 첫 웹사이트</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이름 | 대학원생 포트폴리오</title>
+    
+    <style>
+        /* 기본 스타일 설정 */
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+            line-height: 1.6;
+        }
+
+        /* 중앙 정렬용 컨테이너 */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 상단 네비게이션 바 (구글, 애플 스타일) */
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #eaeaea;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        header a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            margin-left: 20px;
+            font-size: 0.95rem;
+        }
+        header .logo {
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-left: 0;
+            color: #007bff; /* 포인트 컬러 */
+        }
+
+        /* 첫인상 섹션 (Hero Section) */
+        .hero {
+            background-color: white;
+            padding: 100px 0;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        .hero p.subtitle {
+            font-size: 1.5rem;
+            color: #666;
+            margin-top: 0;
+            font-weight: 300;
+        }
+        .hero p.description {
+            max-width: 600px;
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: 30px;
+        }
+
+        /* 공통 섹션 스타일 */
+        section {
+            padding: 80px 0;
+        }
+        section h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            border-bottom: 3px solid #007bff;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        /* 연구 분야/관심사 스타일 (카드형) */
+        .interest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .interest-item {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #eaeaea;
+            transition: all 0.3s ease;
+        }
+        .interest-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .interest-item h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+
+        /* 학력 스타일 (타임라인형) */
+        .education-list {
+            list-style: none;
+            padding: 0;
+        }
+        .education-item {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 2px solid #eaeaea;
+        }
+        .education-item:hover {
+            border-left: 2px solid #007bff;
+        }
+        .education-item .date {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        .education-item .degree {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* 하단 (Footer) */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 0;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        footer a {
+            color: #aaa;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            color: white;
+        }
+
+        /* 모바일용 반응형 디자인 */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p.subtitle { font-size: 1.2rem; }
+            section h2 { font-size: 1.8rem; }
+        }
+    </style>
 </head>
 <body>
-    <h1>안녕하세요! 제 첫 웹사이트에 오신 것을 환영합니다.</h1>
-    <p>AI의 도움을 받아 깃허브 페이지를 만들고 있습니다. 생각보다 어렵지 않네요!</p>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">[본인이름]</a>
+            <nav>
+                <a href="#about">소개</a>
+                <a href="#interests">연구분야</a>
+                <a href="#education">학력</a>
+                <a href="#contact">연락처</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h1>안녕하세요, [본인이름]입니다.</h1>
+            <p class="subtitle">[전공/대학원] 과정 중인 연구자입니다.</p>
+            <p class="description">
+                AI 기술을 활용해 인문학적 가치를 탐구하거나, 데이터를 통해 사회 현상을 분석하는 데 관심이 많습니다. 
+                현재는 [본인의 현재 연구 주제나 목표]에 대한 연구를 진행하고 있습니다.
+            </p>
+        </div>
+    </div>
+
+    <section id="about" style="background-color: white;">
+        <div class="container">
+            <h2>소개 (About Me)</h2>
+            <p>
+                저는 문과 출신의 대학원생으로서, 생소한 기술 세계와의 접점을 찾고 있습니다. 
+                이 웹사이트는 AI 학습 전략 과제의 일환으로 깃허브 페이지를 통해 직접 구축했습니다. 
+                단순한 과제 제출을 넘어, 연구자로서의 제 개인 포트폴리오를 만들어 나가는 첫걸음입니다.
+            </p>
+            <p>
+                [여기에 본인의 성향, 연구 배경, 혹은 이 과제를 통해 느낀 점 등을 2~3줄 더 길게 작성해 보세요.]
+            </p>
+        </div>
+    </section>
+
+    <section id="interests">
+        <div class="container">
+            <h2>연구 관심 분야 (Research Interests)</h2>
+            <div class="interest-grid">
+                <div class="interest-item">
+                    <h3>연구 주제 1</h3>
+                    <p>[주제 1에 대한 상세한 설명을 적으세요. 예: 디지털 휴머니티즈를 통한 고전 문학 분석...]</p>
+                </div>
+                <div class="interest-item">
+                    <h3>연구 주제 2</h3>
+                    <p>[주제 2에 대한 상세한 설명을 적으세요. 예: 사회학적 데이터를 활용한 정책 영향 평가...]</p>
+                </div>
+                <div class="interest-item">
+                    <h3>연구 주제 3</h3>
+                    <p>[주제 3에 대한 상세한 설명을 적으세요. 예: AI 윤리와 인문학적 관점의 융합...]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" style="background-color: white;">
+        <div class="container">
+            <h2>학력 (Education)</h2>
+            <ul class="education-list">
+                <li class="education-item">
+                    <p class="date">202X.03 - 현재</p>
+                    <p class="degree">[대학교명] 대학원 [전공명] 석사/박사 과정</p>
+                </li>
+                <li class="education-item">
+                    <p class="date">20XX.03 - 20XX.02</p>
+                    <p class="degree">[대학교명] [전공명] 학사 졸업</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 [본인이름]. All Rights Reserved.</p>
+            <p>
+                <a href="mailto:본인이메일@email.com">Email</a> | 
+                <a href="https://github.com/본인아이디">GitHub</a>
+            </p>
+        </div>
+    </footer>
+
 </body>
 </html>
